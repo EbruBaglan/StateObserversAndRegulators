@@ -34,4 +34,25 @@ Finally we get
  The Luenberger observer for this discrete-time system is therefore asymptotically stable when the matrix A − L C {\displaystyle A-LC} has all the eigenvalues inside the unit circle
 
  # LQR
- linear quadratic regulator (LQR), is formulated as stabilizing a time-invariant linear system to the origin. (https://underactuated.mit.edu/lqr.html)
+The case where the system dynamics are described by a set of **linear** differential equations and the cost is described by a **quadratic** function is called the **LQ** problem.
+Linear–quadratic regulator (LQR) is a feedback controller whose equations are to be given below. 
+
+LQ-regulator design assumed that all the state variables are available for feedback. In practice, not all state variables are measured.
+The assumption is that we know the system description
+(A, B, C) and that (A, C) is observable
+
+
+linear quadratic regulator (LQR), is formulated as stabilizing a time-invariant linear system to the origin.[1]
+
+Note: If the state equation is quadratic then the problem is known as the quadratic-quadratic regulator (**QQR**). The Al'Brekht algorithm can be applied to reduce this problem to one that can be solved efficiently using tensor based linear solvers.
+If the state equation is polynomial then the problem is known as the polynomial-quadratic regulator (PQR). Again, the Al'Brekht algorithm can be applied to reduce this problem to a large linear one which can be solved with a generalization of the Bartels-Stewart algorithm; this is feasible provided that the degree of the polynomial is not too high.
+
+Model predictive control and linear-quadratic regulators are two types of optimal control methods that have distinct approaches for setting the optimization costs. In particular, when the LQR is run repeatedly with a receding horizon, it becomes a form of model predictive control (MPC). In general, however, MPC does not rely on any assumptions regarding linearity of the system.[2]
+
+# MATLAB part
+Although Bryson's rule usually provides satisfactory results, it is often just the **starting point of a trial-and-error iterative design procedure** to tune your closed-loop system response based on the design requirements.[3]
+
+## Source List
+[1] https://underactuated.mit.edu/lqr.html
+[2] https://en.wikipedia.org/wiki/Linear%E2%80%93quadratic_regulator
+[3] https://www.mathworks.com/help/control/ref/lti.lqr.html
